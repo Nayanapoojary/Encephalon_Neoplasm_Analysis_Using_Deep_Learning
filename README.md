@@ -39,6 +39,72 @@ A comprehensive machine learning framework for classification and segmentation t
 └── README.md
 ```
 
+## 🏗️ System Architecture
+
+### Methodology Pipeline
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    DATA COLLECTION                          │
+│              (BRISC 2025 MRI Dataset)                       │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   PREPROCESSING                             │
+│   • Resize (224×224 / 512×512)                             │
+│   • Normalize (0-1 range)                                   │
+│   • Noise Reduction                                         │
+│   • Data Augmentation                                       │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   DATA SPLITTING                            │
+└─────────┬───────────────────────────────────────┬───────────┘
+          │                                       │
+          ▼                                       ▼
+┌─────────────────────┐               ┌─────────────────────┐
+│   U-NET             │               │   RESNET-18         │
+│   SEGMENTATION      │               │   CLASSIFICATION    │
+│   (79.72% Dice)     │               │   (98.30% Acc)      │
+└─────────┬───────────┘               └──────────┬──────────┘
+          │                                      │
+          └──────────────┬───────────────────────┘
+                         ▼
+          ┌──────────────────────────────┐
+          │   INTEGRATION MODULE         │
+          │   (Class + Mask + Severity)  │
+          └──────────────┬───────────────┘
+                         ▼
+          ┌──────────────────────────────┐
+          │    DIAGNOSTIC REPORT         │
+          │    GENERATION                │
+          └──────────────┬───────────────┘
+                         ▼
+          ┌──────────────────────────────┐
+          │    STREAMLIT INTERFACE       │
+          └──────────────────────────────┘
+```
+
+### Model Architectures
+
+#### ResNet-18 Classification
+- 18 convolutional layers with residual connections
+- Transfer learning from ImageNet pre-trained weights
+- Input: 224×224×3 RGB images
+- Output: 4-class softmax (Glioma, Meningioma, Pituitary, No Tumor)
+- Optimizer: Adam (lr=1e-4)
+- Loss: Categorical Cross-Entropy
+
+#### U-Net Segmentation
+- Encoder-decoder architecture with skip connections
+- Input: 512×512×1 grayscale images
+- Output: Binary segmentation mask
+- Optimizer: Adam (lr=1e-3)
+- Loss: Dice Loss + Binary Cross-Entropy
+
+---
 ## 🚀 Quick Start
 
 ### Installation
@@ -106,7 +172,7 @@ data/briac2025/segmentation_task/
 ### Classification Task
 
 ```bash
-py main_train.py --task classification --data-path "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\brisc2025\classification_task" --output-dir "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results" --epochs 100 --batch-size 32 --learning-rate 0.001
+py main_train.py --task classification --data-path "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\brisc2025\classification_task" --output-dir "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results" --epochs 10 --batch-size 32 --learning-rate 0.001
 
 ```
 py analyze_results.py --results-dir "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results"
@@ -325,7 +391,27 @@ python main_train.py --log-level DEBUG [other args]
    ```python
    model = torch.compile(model)
    ```
+## 📞 Contact
 
+### Project Team
+
+**Guide:** [Mrs. Sharon C DSouza]  
+(Assistant Professor)-[sharon@ajiet.edu.in]
+Department of Computer Science and Engineering  
+A.J. Institute of Engineering and Technology, Mangaluru
+
+**Team Members:**
+- [Nayana Poojary] - [nayanapoojary2004@gmail.com]
+- [Navya N] - [navyaaa101@gmail.com] 
+- [Moksha Shetty] - [smoksha797@gmail.com] 
+
+### Institution
+
+**A.J. Institute of Engineering and Technology**  
+NH-66, Kottara Chowki  
+Mangaluru - 575006  
+Karnataka, India  
+🌐 Website: [www.ajiet.edu.in](http://www.ajiet.edu.in)  
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -339,17 +425,29 @@ python main_train.py --log-level DEBUG [other args]
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
+We would like to express our gratitude to:
 
-- BRIAC2025 Competition organizers
-- PyTorch and torchvision communities
-- Open source contributors
+- **A.J. Institute of Engineering and Technology** for providing infrastructure and support
+- **Department of Computer Science and Engineering** for guidance and resources
+- **BRISC 2025 Dataset Contributors** for publicly available MRI data
+- **TensorFlow/Keras Community** for excellent documentation and support
+- **Streamlit Team** for the amazing web framework
+- **Research Community** for foundational work in medical AI:
+  - He et al. for ResNet architecture
+  - Ronneberger et al. for U-Net architecture
+  - All researchers advancing medical image analysis
 
 ## 📞 Support
 
 For questions and support:
 - Create an issue on GitHub
 - Email: support@briac2025.com
-- Documentation: [Link to docs]
+
+---
+
+## ⭐ Star History
+
+If you find this project useful, please consider giving it a star! ⭐
 
 ---
 
