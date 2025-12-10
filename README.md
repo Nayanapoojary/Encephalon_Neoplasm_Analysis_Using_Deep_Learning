@@ -32,10 +32,6 @@ A comprehensive machine learning framework for classification and segmentation t
 │       ├── data_utils.py
 │       ├── metrics.py
 │       └── visualization.py
-├── notebooks/
-│   ├── data_exploration.ipynb
-│   ├── model_training.ipynb
-│   └── results_analysis.ipynb
 ├── results/
 ├── main_train.py
 ├── requirements.txt
