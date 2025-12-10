@@ -1,0 +1,348 @@
+PS C:\Users\navee\Downloads\encephalon_neoplasm_major_project> py main_train.py --task classification --data-path "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task" --output-dir "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results" --epochs 10 --batch-size 32 --learning-rate 0.001                                                                            
+Encephalon Neoplasm Detection - Main Training Script
+============================================================
+Environment Setup:
+  Device: cpu
+  Random seed: 42
+  Data path: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task
+  Output directory: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results
+  Task: classification
+
+============================================================
+BRAIN TUMOR CLASSIFICATION TRAINING
+============================================================
+2025-08-30 00:56:25,320 - INFO - Starting brain tumor classification training...
+2025-08-30 00:56:25,321 - INFO - Data path: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task
+2025-08-30 00:56:25,321 - INFO - Output directory: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results
+2025-08-30 00:56:25,321 - INFO - Device: cpu
+2025-08-30 00:56:25,322 - INFO - Epochs: 10, Batch size: 32, Learning rate: 0.001
+2025-08-30 00:56:25,322 - INFO - Architecture: resnet18, Input size: 224
+2025-08-30 00:56:25,323 - INFO - Creating datasets...
+2025-08-30 00:56:25,324 - INFO - Loading train dataset from: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\train
+2025-08-30 00:56:25,349 - INFO -   glioma: 1147 images
+2025-08-30 00:56:25,376 - INFO -   meningioma: 1329 images
+2025-08-30 00:56:25,400 - INFO -   no_tumor: 1067 images
+2025-08-30 00:56:25,423 - INFO -   pituitary: 1457 images
+2025-08-30 00:56:25,425 - INFO - 
+TRAIN Dataset Statistics:
+2025-08-30 00:56:25,425 - INFO - Total samples: 5000
+2025-08-30 00:56:25,425 - INFO -   glioma: 1147 samples
+2025-08-30 00:56:25,426 - INFO -   meningioma: 1329 samples
+2025-08-30 00:56:25,426 - INFO -   no_tumor: 1067 samples
+2025-08-30 00:56:25,426 - INFO -   pituitary: 1457 samples
+2025-08-30 00:56:25,426 - INFO - Loading val dataset from: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\val
+2025-08-30 00:56:25,426 - WARNING - Split directory not found: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\val
+2025-08-30 00:56:25,427 - WARNING - No samples found for val split!
+2025-08-30 00:56:25,427 - INFO - Loading test dataset from: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\test
+2025-08-30 00:56:25,427 - INFO -   glioma: 254 images
+2025-08-30 00:56:25,442 - INFO -   meningioma: 306 images
+2025-08-30 00:56:25,476 - INFO -   no_tumor: 140 images
+2025-08-30 00:56:25,497 - INFO -   pituitary: 300 images
+2025-08-30 00:56:25,498 - INFO - 
+TEST Dataset Statistics:
+2025-08-30 00:56:25,498 - INFO - Total samples: 1000
+2025-08-30 00:56:25,498 - INFO -   glioma: 254 samples
+2025-08-30 00:56:25,498 - INFO -   meningioma: 306 samples
+2025-08-30 00:56:25,498 - INFO -   no_tumor: 140 samples
+2025-08-30 00:56:25,498 - INFO -   pituitary: 300 samples
+2025-08-30 00:56:25,498 - INFO - Using test split as validation data.
+2025-08-30 00:56:25,499 - INFO - Train loader: 157 batches
+2025-08-30 00:56:25,499 - INFO - Validation loader: 32 batches
+2025-08-30 00:56:25,499 - INFO - Initializing resnet18 model...
+C:\Users\navee\anaconda3\Lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+C:\Users\navee\anaconda3\Lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2025-08-30 00:56:25,723 - INFO - Total parameters: 11,178,564
+2025-08-30 00:56:25,723 - INFO - Trainable parameters: 11,178,564
+2025-08-30 00:56:25,723 - INFO -
+Starting training for 10 epochs...
+================================================================================
+Training: 100%|████████████████████████████████████████████████████████████████████| 157/157 [08:16<00:00,  3.16s/it, Loss=0.3387, Acc=88.22%] 
+Validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:34<00:00,  1.08s/it]
+
+Epoch 1/10 (531.35s):
+  Train - Loss: 0.3387, Acc: 88.22%
+  Val   - Loss: 0.6854, Acc: 79.50%
+  LR: 0.001000
+  *** New best model saved! Validation accuracy: 79.50% ***
+--------------------------------------------------------------------------------
+Training: 100%|█████████████████████████████████████████████████████████████████| 157/157 [6:23:35<00:00, 146.59s/it, Loss=0.2247, Acc=91.96%] 
+Validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:31<00:00,  1.01it/s] 
+
+Epoch 2/10 (23046.89s):
+  Train - Loss: 0.2247, Acc: 91.96%
+  Val   - Loss: 0.9128, Acc: 68.90%
+  LR: 0.001000
+--------------------------------------------------------------------------------
+Training: 100%|████████████████████████████████████████████████████████████████| 157/157 [11:13:25<00:00, 257.36s/it, Loss=0.1962, Acc=93.54%] 
+Validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:47<00:00,  1.48s/it]
+
+Epoch 3/10 (40452.45s):
+  Train - Loss: 0.1962, Acc: 93.54%
+  Val   - Loss: 0.6032, Acc: 79.70%
+  LR: 0.000100
+  *** New best model saved! Validation accuracy: 79.70% ***
+--------------------------------------------------------------------------------
+Training: 100%|████████████████████████████████████████████████████████████████████| 157/157 [15:24<00:00,  5.89s/it, Loss=0.0838, Acc=97.30%]
+Validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:28<00:00,  1.12it/s]
+
+Epoch 4/10 (953.32s):
+  Train - Loss: 0.0838, Acc: 97.30%
+  Val   - Loss: 0.0860, Acc: 97.20%
+  LR: 0.000100
+  *** New best model saved! Validation accuracy: 97.20% ***
+--------------------------------------------------------------------------------
+Training: 100%|████████████████████████████████████████████████████████████████████| 157/157 [17:50<00:00,  6.82s/it, Loss=0.0567, Acc=98.32%] 
+Validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [07:16<00:00, 13.65s/it] 
+
+Epoch 5/10 (1507.07s):
+  Train - Loss: 0.0567, Acc: 98.32%
+  Val   - Loss: 0.0748, Acc: 97.40%
+  LR: 0.000100
+  *** New best model saved! Validation accuracy: 97.40% ***
+--------------------------------------------------------------------------------
+Training: 100%|████████████████████████████████████████████████████████████████████| 157/157 [47:59<00:00, 18.34s/it, Loss=0.0515, Acc=98.32%] 
+Validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:30<00:00,  1.06it/s]
+
+Epoch 6/10 (2909.26s):
+  Train - Loss: 0.0515, Acc: 98.32%
+  Val   - Loss: 0.0590, Acc: 98.10%
+  LR: 0.000010
+  *** New best model saved! Validation accuracy: 98.10% ***
+----------------------------- ---------------------------------------------------
+Training: 100%|████████████████████████████████████████████████████████████████| 157/157 [23:06:10<00:00, 529.75s/it, Loss=0.0472, Acc=98.60%] 
+Validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:34<00:00,  1.09s/it]
+
+Epoch 7/10 (83205.08s):
+  Train - Loss: 0.0472, Acc: 98.60%
+  Val   - Loss: 0.0622, Acc: 98.10%
+  LR: 0.000010
+--------------------------------------------------------------------------------
+Training: 100%|████████████████████████████████████████████████████████████████████| 157/157 [09:17<00:00,  3.55s/it, Loss=0.0372, Acc=98.88%] 
+Validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:31<00:00,  1.03it/s]
+
+Epoch 8/10 (588.73s):
+  Train - Loss: 0.0372, Acc: 98.88%
+  Val   - Loss: 0.0553, Acc: 98.30%
+  LR: 0.000010
+  *** New best model saved! Validation accuracy: 98.30% ***
+--------------------------------------------------------------------------------
+Training: 100%|████████████████████████████████████████████████████████████████████| 157/157 [08:21<00:00,  3.20s/it, Loss=0.0403, Acc=98.78%] 
+Validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:29<00:00,  1.07it/s] 
+
+Epoch 9/10 (531.97s):
+  Train - Loss: 0.0403, Acc: 98.78%
+  Val   - Loss: 0.0607, Acc: 98.20%
+  LR: 0.000001
+--------------------------------------------------------------------------------
+Training: 100%|████████████████████████████████████████████████████████████████████| 157/157 [10:09<00:00,  3.88s/it, Loss=0.0328, Acc=99.04%] 
+Validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:40<00:00,  1.28s/it] 
+
+Epoch 10/10 (650.48s):
+  Train - Loss: 0.0328, Acc: 99.04%
+  Val   - Loss: 0.0567, Acc: 98.20%
+  LR: 0.000001
+--------------------------------------------------------------------------------
+
+Training completed!
+Best validation accuracy: 98.30% (Epoch 8)
+Total training time: 154381.47 seconds
+2025-08-31 19:49:26,810 - INFO - Generating final evaluation...
+Validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:36<00:00,  1.13s/it]
+2025-08-31 19:50:03,772 - INFO - Expected classes: ['glioma', 'meningioma', 'no_tumor', 'pituitary']
+2025-08-31 19:50:03,773 - INFO - Classes present in data: ['glioma', 'meningioma', 'no_tumor', 'pituitary']
+2025-08-31 19:50:08,674 - INFO - All results saved to: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results
+2025-08-31 19:50:08,674 - INFO - Best model saved as: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results\best_model.pth
+
+Final Results:
+- Model: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results\best_model.pth
+- Training plots: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results/training_history.png
+- Confusion matrix: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results/confusion_matrix.png
+- Detailed results: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results/training_results.json
+- Summary: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results/training_summary.txt
+
+Training completed! Check results in: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results
+
+
+PS C:\Users\navee\Downloads\encephalon_neoplasm_major_project> py analyze_results.py --results-dir "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results"
+🧠 BRAIN TUMOR CLASSIFICATION RESULTS ANALYSIS
+============================================================
+============================================================
+TRAINING PERFORMANCE ANALYSIS
+============================================================
+Model Architecture: resnet18
+Total Epochs: 10
+Best Epoch: 8
+Training Time: 154381.47 seconds (42.88 hours)
+
+ACCURACY METRICS:
+  Final Training Accuracy: 99.04%
+  Final Validation Accuracy: 98.30%
+  Best Validation Accuracy: 98.30%
+
+LOSS METRICS:
+  Final Training Loss: 0.0328
+  Final Validation Loss: 0.0553
+
+OVERFITTING ANALYSIS:
+  Accuracy Gap (Train - Val): 0.74%
+  Loss Gap (Val - Train): 0.0225
+  ✅ Good generalization (low accuracy gap)
+
+============================================================
+PER-CLASS PERFORMANCE ANALYSIS
+============================================================
+Expected Classes: ['glioma', 'meningioma', 'no_tumor', 'pituitary']
+Present Classes: ['glioma', 'meningioma', 'no_tumor', 'pituitary']
+
+CLASS-WISE METRICS:
+     Class Precision Recall F1-Score  Support
+    glioma     0.992  0.965    0.978      254
+meningioma     0.977  0.977    0.977      306
+  no_tumor     0.979  1.000    0.989      140
+ pituitary     0.984  0.997    0.990      300
+
+Best Performing Class: pituitary (F1: 0.990)
+Worst Performing Class: meningioma (F1: 0.977)
+
+WEIGHTED AVERAGES:
+  Precision: 0.983
+  Recall: 0.983
+  F1-Score: 0.983
+
+============================================================
+TRAINING CURVES ANALYSIS
+============================================================
+Training converged at epoch 8 with 98.30% validation accuracy
+Training loss improved by 85.5% from early to late epochs
+Detailed training analysis plot saved to: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results/detailed_training_analysis.png
+
+============================================================
+PERFORMANCE SUMMARY
+============================================================
+Overall Performance: Excellent
+Training Efficiency: 42.9 hours for 10 epochs
+Model Complexity: 11,178,564 parameters
+Generalization: Good
+
+Performance summary saved to: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results\performance_summary.txt
+
+============================================================
+ANALYSIS COMPLETED
+============================================================
+Results directory: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\results
+Generated files:
+- detailed_training_analysis.png
+- performance_summary.txt
+
+
+PS C:\Users\navee\Downloads\encephalon_neoplasm_major_project> py src/inference/simple_inference.py --model-path "results/best_model.pth" --input "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\test\glioma" --output "results/inference_results/glioma_test.csv"
+>> 
+Loading model from: results/best_model.pth
+C:\Users\navee\anaconda3\Lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+C:\Users\navee\anaconda3\Lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+Model loaded successfully: resnet18
+Scanning directory: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\test\glioma
+Found 508 images
+Predicting: 100%|███████████████████████████████████████████████████████████████████████████████████████████| 508/508 [00:28<00:00, 17.96it/s]
+
+Results saved to: results\inference_results\glioma_test.csv
+
+PREDICTION SUMMARY:
+Total images: 508
+Class distribution:
+  glioma: 490 images
+  meningioma: 12 images
+  pituitary: 6 images
+Average confidence: 96.82%
+                                                                                                                              
+PS C:\Users\navee\Downloads\encephalon_neoplasm_major_project> py src/inference/simple_inference.py --model-path "results/best_model.pth" --input "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\test\meningioma" --output "results/inference_results/meningioma_test.csv"
+>> 
+Loading model from: results/best_model.pth
+C:\Users\navee\anaconda3\Lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+C:\Users\navee\anaconda3\Lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+Model loaded successfully: resnet18
+Scanning directory: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\test\meningioma
+Found 612 images
+Predicting: 100%|███████████████████████████████████████████████████████████████████████████████████████████| 612/612 [00:28<00:00, 21.80it/s] 
+
+Results saved to: results\inference_results\meningioma_test.csv
+
+PREDICTION SUMMARY:
+Total images: 612
+Class distribution:
+  meningioma: 598 images
+  no_tumor: 6 images
+  pituitary: 4 images
+  glioma: 4 images
+Average confidence: 97.49%
+
+PS C:\Users\navee\Downloads\encephalon_neoplasm_major_project> py src/inference/simple_inference.py --model-path "results/best_model.pth" --input "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\test\no_tumor" --output "results/inference_results/no_tumor_test.csv"    
+>> 
+Loading model from: results/best_model.pth
+C:\Users\navee\anaconda3\Lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+C:\Users\navee\anaconda3\Lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+Model loaded successfully: resnet18
+Scanning directory: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\test\no_tumor
+Found 280 images
+Predicting: 100%|███████████████████████████████████████████████████████████████████████████████████████████| 280/280 [00:08<00:00, 31.58it/s] 
+
+Results saved to: results\inference_results\no_tumor_test.csv
+
+PREDICTION SUMMARY:
+Total images: 280
+Class distribution:
+  no_tumor: 280 images
+Average confidence: 99.59%
+
+PS C:\Users\navee\Downloads\encephalon_neoplasm_major_project> py src/inference/simple_inference.py --model-path "results/best_model.pth" --input "C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\test\pituitary" --output "results/inference_results/pituitary_test.csv"  
+>> 
+Loading model from: results/best_model.pth
+C:\Users\navee\anaconda3\Lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+C:\Users\navee\anaconda3\Lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+Model loaded successfully: resnet18
+Scanning directory: C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\classification_task\test\pituitary
+Found 600 images
+Predicting: 100%|███████████████████████████████████████████████████████████████████████████████████████████| 600/600 [00:26<00:00, 22.50it/s]
+
+Results saved to: results\inference_results\pituitary_test.csv
+
+PREDICTION SUMMARY:
+Total images: 600
+Class distribution:
+  pituitary: 598 images
+  meningioma: 2 images
+Average confidence: 99.12%
+
+PS C:\Users\navee\Downloads\encephalon_neoplasm_major_project> py src/training/train_segmentation.py
+Found 7866 pairs in C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\segmentation_task\train\images
+Found 1720 pairs in C:\Users\navee\Downloads\encephalon_neoplasm_major_project\data\preprocessed\segmentation_task\test\images
+Using device: cpu
+Epoch 1/10 - 85297.8s | Train 0.5530 | Val 0.3760 | Dice 0.6267
+  ✅ Saved new best model (Dice 0.6267)
+Epoch 2/10 - 7084.6s | Train 0.3389 | Val 0.3327 | Dice 0.6681
+  ✅ Saved new best model (Dice 0.6681)
+Epoch 3/10 - 5207.7s | Train 0.2945 | Val 0.2804 | Dice 0.7202
+  ✅ Saved new best model (Dice 0.7202)
+Epoch 4/10 - 5127.6s | Train 0.2589 | Val 0.2420 | Dice 0.7589
+  ✅ Saved new best model (Dice 0.7589)
+Epoch 5/10 - 17082.7s | Train 0.2484 | Val 0.2696 | Dice 0.7306
+Epoch 6/10 - 5263.9s | Train 0.2385 | Val 0.2483 | Dice 0.7520
+Epoch 7/10 - 49647.3s | Train 0.2247 | Val 0.2283 | Dice 0.7719
+  ✅ Saved new best model (Dice 0.7719)
+Epoch 8/10 - 5466.2s | Train 0.2197 | Val 0.2343 | Dice 0.7660
+Epoch 9/10 - 6507.8s | Train 0.2084 | Val 0.2030 | Dice 0.7972
+  ✅ Saved new best model (Dice 0.7972)
+Train:   0%|                                                                                 | 0/984 [00:00<?, ?it/s]C:\Users\navee\anaconda3\Lib\site-packages\albumentations\check_version.py:147: UserWarning: Error fetching version info <urlopen error [WinError 10065] A socket operation was attempted to an unreachable host>
+  data = fetch_version_info()
+Epoch 10/10 - 20663.3s | Train 0.2052 | Val 0.2104 | Dice 0.7898
+  `
